@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TechFest</title>
+    
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- fonts -->
+        <!-- silkscreen font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+        <!-- press start 2p font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <!-- landing page hero container -->
+    <div class="hero-ctn">
+        <h1 class="hero-title">TECHFEST 2026:</h1>
+        <h1 class="hero-sub">A Deca-Voxel of Brilliance</h1>
+
+        <h5 class="details">From Pixels of passion to Voxels of impact. Celebrating 10 years of innovation at the Department of Computer Studies.</h5>
+        <span class="reminder" style="width: 90%; display: flex; justify-content: space-around;">
+            <h5 style="margin-bottom: 0;"><img class="icons" src="/icons/calendar-fill.svg" alt="D"> Mar 9-13, 2026 &nbsp;| &nbsp;<img src="/icons/geo-fill.svg" alt="L"> Cavite State University</h5>
+        </span>
+        <h5 class="campus" style="margin: 5px 0 32px 0;">CCAT Campus</h5>
+
+        <!-- register button to be relocated -->
+        <button class="btn btn-register" onclick="window.location.href='#reg-games';">Register</button>
+    </div>
+    
+    <!-- event timeline container -->
+    <div class="container timeline-ctn">
+        <h2 class="timeline-title">Event Timeline</h2>
+        <hr style="opacity: 10%; height: 2px;">
+        <ul class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-date">March 9–11, 2026</div>
+                <div class="timeline-content">
+                    <h4>ComLeague</h4>
+                    <p>1:00 p.m. – 3:30 p.m.</p>
+                    <ul class="timeline-details"> 
+                        <li>Ready, Set, Run!</li>
+                        <li>Keyboard Warrior</li>
+                        <li>Trace, Inspect, and Execute: The Debug Trials</li>
+                        <li>PC Assembly/Disassembly</li>
+                        <li>LAN Picks: The Wiring Battle</li>
+                        <li>Heritage Makes Hardware</li>
+                        <li>Mock-A-Thon: UI/UX Edition</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-date">March 12, 2026</div>
+                <div class="timeline-content">
+                    <h4>Opening Day & Finals</h4>
+                    <ul class="timeline-details">
+                        <li>7:30 a.m. · Opening Parade</li>
+                        <li>8:00 a.m. · Opening Ceremony</li>
+                        <li>10:00 a.m. · TECH Talks/Seminar</li>
+                        <li>12:00 n.n. · Break Time</li>
+                        <li>1:00 p.m. · Digital Glory: MLBB Grand Finals</li>
+                        <li>1:00 p.m. · Radiant's Protocol Grand Finals</li>
+                        <li>5:00 p.m. · Screen to Scene: Cosplay Competition</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-date">March 13, 2026</div>
+                <div class="timeline-content">
+                    <h4>Closing Day</h4>
+                    <ul class="timeline-details">
+                        <li>11:00 a.m.  · TECHVantage Quiz Bee Grand Finals</li>
+                        <li>12:00 n.n.  · Collide: Two Voices, One Song</li>
+                        <li>2:00 p.m.  · Mr. and Mrs. TechFest</li>
+                        <li>6:00 p.m. · Closing Program</li>
+                        <li>Evening · Battle of the Bands Grand Finals</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- game registration divider -->
+    <div class="register-ctn" id="reg-games">
+        <h1>Registration</h1>
+        <div class="registration">
+            <!-- Techtalks card -->
+            <div class="card"> 
+                <div class="techtalks-bg"></div>
+                <div class="contents">
+                    <h1>TECH Talks</h1>
+                    <div class="content-details">
+                        <p>A seminar focused on Cyber Security that provides participants with relevant 
+                            knowledge related to the fields under the Department of Computer Studies, 
+                            equipping students to be informed, aware, and inspired in addressing modern 
+                            issues and threats.</p>
+                    </div>
+                    <button class="btn btn-register" onclick="window.location.href='/register/techTalks'">Learn more...</button>
+                </div>
+            </div>
+            <!-- comleague card -->
+            <div class="card">
+                <div class="comleague-bg"></div>
+                <div class="contents">
+                    <h1>ComLeague</h1>
+                    <div class="content-details">
+                        <p>ComLeague will feature a series of exciting activities that highlight the competitive 
+                            spirit of the Department of Computer Studies. It will consist of seven stations, where each 
+                            representative will take on different challenges that test their skills and knowledge. Each station 
+                            will have its own set of rules and regulations.</p>
+                    </div>
+                    <button class="btn btn-register" onclick="window.location.href='/register/comleague'">Learn more...</button>
+                </div>
+            </div>
+            <!-- mlbb card -->
+            <div class="card">
+                <div class="ml-bg"></div>
+                <div class="contents">
+                    <h1>Mobile Legends: Bang Bang</h1>
+                    <div class="content-details">
+                        <p>An esports event that showcases the skills, teamwork, and strategic gameplay of participating 
+                            students as they compete for victory and recognition in one of today’s 
+                            most popular mobile games.</p>
+                    </div>
+                    <button class="btn btn-register" onclick="window.location.href='/register/mlbb'">Learn more...</button>
+                </div>
+            </div>
+            <!-- valorant card -->
+            <div class="card">
+                <div class="valo-bg"></div>
+                <div class="bg-credit">
+                    <p>"Pixel Valorant" by Gas13</p>
+                    <p>Source: gas13.deviantart.com</p>
+                </div>
+                <div class="contents">
+                    <h1>Valorant</h1>
+                    <div class="content-details">
+                        <p>An esports event that showcases tactical gameplay, precision, and team strategy as 
+                            participating students compete for victory and recognition in this fast-paced 
+                            5v5 competitive shooter.</p>
+                    </div>
+                    <button class="btn btn-register" onclick="window.location.href='/register/valorant'">Learn more...</button>
+                </div>
+            </div>
+            <!-- cosplay card -->
+            <div class="card">
+                <div class="cosplay-bg"></div>
+                <div class="contents">
+                    <h1>Cosplay Competition</h1>
+                    <div class="content-details">
+                        <p>This event aims to promote creativity, craftsmanship, self expression, and 
+                            appreciation through cosplay. Cosplayers are encouraged to embody their chosen 
+                            character through accurate costume design, performance and stage presentation. 
+                            Cosplayers may portray any character of their choice or any video-game related 
+                            characters.</p>
+                    </div>
+                    <button class="btn btn-register" onclick="window.location.href='/register/cosplay'">Learn more...</button>
+                </div>
+            </div>
+
+            <!-- collide card -->
+            <div class="card">
+                <div class="collide-bg"></div>
+                <div class="contents">
+                    <h1>Two Voices, One Song</h1>
+                    <div class="content-details">
+                        <p>This duet singing contest celebrates talent, confidence, and collaboration between students 
+                            and faculty.</p>
+                    </div>
+                    <button class="btn  btn-register" onclick="window.location.href='/register/collide'">Learn more...</button>
+                </div>
+            </div>
+        </div>
+        <!-- credits to be relocated -->
+        <h4 style=" text-align: center; padding: 40px 0 20px 0; color: aliceblue;"><span class="code-credits">CO:DE</span> x <span class="byte-credits">BYTE</span></h4>
+    </div>
+</body>
+</html>

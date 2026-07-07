@@ -1,0 +1,451 @@
+/* Station Registration Form Styling */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.form-ctn {
+    width: 90%;
+    max-width: 700px;
+    margin: 4rem auto;
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 2px solid rgba(162, 228, 247, 0.5);
+    box-shadow: 0 0 20px rgba(225, 137, 255, 0.25), inset 0 0 30px rgba(225, 137, 255, 0.08);
+    background: linear-gradient(135deg, 
+        rgba(225, 137, 255, 0.05) 0%, 
+        rgba(10, 8, 20, 0.9) 50%, 
+        rgba(162, 228, 247, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-ctn::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(162, 228, 247, 0.2), transparent);
+    z-index: -1;
+}
+
+/* Form Header */
+.form-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid rgba(162, 228, 247, 0.3);
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-header .kicker {
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #63e772;
+    text-shadow: 0 0 10px #a2e4f7;
+    margin: 0 0 0.5rem 0;
+    font-weight: 400;
+}
+
+.form-header h2 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: #e189ff;
+    text-shadow: 0 0 10px #e189ff, 0 0 40px rgba(225, 137, 255, 0.4);
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 1.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    color: #a2e4f7;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 4px rgba(162, 228, 247, 0.5);
+    text-transform: uppercase;
+}
+
+.form-control {
+    padding: 0.9rem 1.2rem;
+    background-color: rgba(10, 8, 20, 0.8);
+    border: 2px solid rgba(162, 228, 247, 0.3);
+    border-radius: 4px;
+    color: aliceblue;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(162, 228, 247, 0.1);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #a2e4f7;
+    box-shadow: 0 0 15px rgba(162, 228, 247, 0.4), inset 0 0 10px rgba(162, 228, 247, 0.1);
+    background-color: rgba(10, 8, 20, 0.95);
+}
+
+.form-control::placeholder {
+    color: rgba(240, 248, 255, 0.4);
+}
+
+/* File Input Styling */
+input[type="file"] {
+    height: fit-content;
+    background-color: rgba(10, 8, 20, 0.8);
+    border: 2px dashed rgba(162, 228, 247, 0.4);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #a2e4f7;
+    color: rgb(10, 8, 20);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 0.8rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.07rem;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #e189ff;
+    box-shadow: 0 0 10px rgba(225, 137, 255, 0.6);
+}
+
+input[type="file"]:hover {
+    border-color: #a2e4f7;
+    box-shadow: 0 0 10px rgba(162, 228, 247, 0.2);
+}
+
+/* Guidelines Container */
+.guideline-ctn {
+    margin-top: 2.5rem;
+    padding: 1.8rem;
+    background: linear-gradient(135deg, 
+        rgba(225, 137, 255, 0.08) 0%, 
+        rgba(162, 228, 247, 0.06) 100%);
+    border-left: 4px solid #e189ff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(225, 137, 255, 0.15);
+}
+
+.guideline-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.guideline-header h4 {
+    font-size: 1.3rem;
+    color: #e189ff;
+    text-shadow: 0 0 10px #e189ff;
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, #e189ff, #a2e4f7);
+    color: rgb(10, 8, 20);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(225, 137, 255, 0.4);
+}
+
+.guideline-ctn ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.guideline-ctn ul li {
+    padding-left: 1.8rem;
+    margin-bottom: 0.9rem;
+    font-family: "Press Start 2P", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    position: relative;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    line-height: 1.7;
+    color: aliceblue;
+}
+
+.guideline-ctn ul li::before {
+    content: "►";
+    position: absolute;
+    left: 0;
+    color: #a2e4f7;
+    text-shadow: 0 0 8px #a2e4f7;
+}
+
+.guideline-ctn ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Submit Button Style */
+.form-group button,
+.form-ctn button[type="submit"] {
+    margin-top: 1.5rem;
+    padding: 0.95rem 2rem;
+    background: linear-gradient(135deg, #e189ff 0%, #a2e4f7 100%);
+    color: rgb(10, 8, 20);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(225, 137, 255, 0.4), 0 0 60px rgba(162, 228, 247, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-group button:hover,
+.form-ctn button[type="submit"]:hover {
+    box-shadow: 0 0 15px rgba(225, 137, 255, 0.6), 0 0 80px rgba(162, 228, 247, 0.3);
+    transform: translateY(-2px);
+}
+
+.form-group button:active,
+.form-ctn button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Form Actions Container */
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-return {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 2rem;
+    background: linear-gradient(135deg, rgba(162, 228, 247, 0.3) 0%, rgba(162, 228, 247, 0.1) 100%);
+    color: #a2e4f7;
+    border: 2px solid #a2e4f7;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(162, 228, 247, 0.2);
+}
+
+.btn-return:hover {
+    background: linear-gradient(135deg, rgba(162, 228, 247, 0.5) 0%, rgba(162, 228, 247, 0.3) 100%);
+    color: #a2e4f7;
+    box-shadow: 0 0 10px rgba(162, 228, 247, 0.5), 0 0 60px rgba(162, 228, 247, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-return:active {
+    transform: translateY(0);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.station-7 {
+    max-width: 1080px;
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.player-number {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    color: #e189ff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.player-card {
+    padding: 18px;
+    border: 2px solid rgba(162, 228, 247, 0.3);
+    border-radius: 4px;
+    background: linear-gradient(145deg, rgba(10, 8, 20, 0.7), rgba(16, 10, 26, 0.6));
+    box-shadow: 0 0 10px rgba(225, 137, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.player-card:hover {
+    border-color: #a2e4f7;
+    box-shadow: 0 0 15px rgba(162, 228, 247, 0.4);
+}
+
+.form-control,
+.form-control-file {
+    background: rgba(10, 8, 20, 0.8);
+    border: 2px solid rgba(162, 228, 247, 0.3);
+    color: aliceblue;
+    border-radius: 4px;
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    font-family: "Press Start 2P", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(162, 228, 247, 0.1);
+}
+
+.form-control-file {
+    padding: 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.form-control-file::file-selector-button {
+    background-color: #a2e4f7;
+    color: rgb(10, 8, 20);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 0.8rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.07rem;
+}
+
+.form-control-file::file-selector-button:hover {
+    background-color: #e189ff;
+    box-shadow: 0 0 10px rgba(225, 137, 255, 0.6);
+}
+
+.form-control::placeholder {
+    color: rgba(245, 247, 255, 0.45);
+}
+
+.form-control:focus,
+.form-control-file:focus {
+    outline: none;
+    border-color: #a2e4f7;
+    box-shadow: 0 0 15px rgba(162, 228, 247, 0.4), inset 0 0 10px rgba(162, 228, 247, 0.1);
+    background-color: rgba(10, 8, 20, 0.95);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .form-ctn {
+        width: 95%;
+        padding: 1.8rem;
+        margin: 2rem auto;
+    }
+
+    .team-members {
+        grid-template-columns: repeat(1, minmax(260px, 1fr));
+    }
+
+    .form-header h2 {
+        font-size: 1.9rem;
+    }
+
+    .guideline-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .guideline-ctn ul li {
+        font-size: 0.75rem;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+    }
+
+    .form-control {
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .form-ctn {
+        width: 100%;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-radius: 0;
+    }
+
+    .form-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .form-header .kicker {
+        font-size: 0.8rem;
+    }
+
+    .guideline-header h4 {
+        font-size: 1.1rem;
+    }
+
+    .tag {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .guideline-ctn ul li {
+        font-size: 0.75rem;
+        padding-left: 1.5rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .form-group button,
+    .form-ctn button[type="submit"] {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .form-actions .btn,
+    .btn-return {
+        width: 100%;
+    }
+}

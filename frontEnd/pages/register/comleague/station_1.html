@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station 1: Ready, Set, Run</title>
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- fonts -->
+        <!-- silkscreen font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+        <!-- press start 2p font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/station.css">
+
+</head>
+<body>
+    <form class="form-ctn" id="station1">
+        <div class="form-header">
+            <p class="kicker">TechFest 2026</p>
+            <h2>Station 1: Ready, Set, Run!</h2>
+        </div>
+
+        <div class="form-group">
+            <label for="username">FullName</label>
+            <input type="text" id="username" name="username" placeholder="Juan Dela Cruz" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="studentID">Student Number</label>
+            <input type="tel" id="schoolID" name="schoolID" placeholder="20-12345" class="form-control" maxlength="9" required>
+        </div>
+
+        <div class="form-group">
+            <label for="regForm">Registration Form</label>
+            <input type="file" name="regForm" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+        </div>
+
+        <div class="guideline-ctn">
+            <div class="guideline-header">
+                <h4>Important Guidelines</h4>
+                <span class="tag">Read Before Registering</span>
+            </div>
+            <ul>
+                <li><strong>Registration Fee:</strong> 20.00 php</li>
+                <li>Participants should not be registered to any other TechFest activities that will conflict with the time frame of the event.</li>
+                <li>Students must upload their school registration form as part of the registration process.</li>
+                <li>The registration committee reserves the right to cancel registrations with incomplete requirements.</li>
+                <li>Registration cancellation is not allowed. In unavoidable cases, participants must inform the assigned officer to reopen registration for replacements.</li>
+            </ul>
+        </div>
+        <div id="message"></div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-register">Submit</button>
+            <a class="btn btn-return" href="/register/comleague">Return to Events</a>
+        </div>
+    </form>
+    <h4 style=" text-align: center; padding: 40px 0 20px 0; color: aliceblue;"><span class="code-credits">CO:DE</span> x <span class="byte-credits">BYTE</span></h4>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+            const station1 = document.getElementById('station1');
+
+            if (station1) {
+                station1.addEventListener('submit', handlesubmit);
+            }
+        });
+
+
+        async function handlesubmit(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const schoolID = document.getElementById('schoolID').value.trim();
+            const regFormInput = document.querySelector('input[name="regForm"]');
+            const submitBtn = document.querySelector('.btn-register');
+            const messageDiv = document.getElementById('message');
+
+            messageDiv.classList.remove('is-success', 'is-error');
+            messageDiv.innerHTML = '';
+
+            if (!regFormInput.files || regFormInput.files.length === 0) {
+                messageDiv.classList.add('is-error');
+                messageDiv.innerHTML = '<p>Please select a registration form file</p>';
+                return;
+            }
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+            }
+
+            try {
+                const formData = new FormData();
+                formData.append('username', username);
+                formData.append('schoolID', schoolID);
+                formData.append('regForm', regFormInput.files[0]);
+
+                const response = await fetch('/register/comleague/station-1', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    messageDiv.classList.add('is-success');
+                    messageDiv.innerHTML = '<p>Registration Successful!</p>';
+                    document.getElementById('station1').reset();
+                } else {
+                    messageDiv.classList.add('is-error');
+                    messageDiv.innerHTML = `<p>${data.error}</p>`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.classList.add('is-error');
+                messageDiv.innerHTML = '<p>Unable to submit registration. Please try again.</p>';
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

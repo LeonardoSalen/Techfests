@@ -1,0 +1,352 @@
+body {
+	min-height: 100vh;
+	display: flex;
+    flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 16px;
+	background-image:
+		radial-gradient(circle at 15% 25%, rgba(162, 228, 247, 0.2) 0, transparent 45%),
+		radial-gradient(circle at 85% 15%, rgba(99, 231, 114, 0.18) 0, transparent 40%),
+		radial-gradient(circle at 25% 85%, rgba(225, 137, 255, 0.2) 0, transparent 45%);
+}
+
+
+.form-ctn {
+    width: min(1000px, 100%);
+    padding: clamp(20px, 3vw, 40px);
+    border: 2px solid rgba(162, 228, 247, 0.5);
+    border-radius: 8px;
+    background: linear-gradient(135deg, 
+        rgba(225, 137, 255, 0.05) 0%, 
+        rgba(10, 8, 20, 0.9) 50%, 
+        rgba(162, 228, 247, 0.05) 100%);
+    box-shadow: 0 0 20px rgba(225, 137, 255, 0.25), inset 0 0 30px rgba(225, 137, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-ctn::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(162, 228, 247, 0.2), transparent);
+    z-index: -1;
+}
+
+.form-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid rgba(162, 228, 247, 0.3);
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.9rem;
+    color: #63e772;
+    text-shadow: 0 0 10px #a2e4f7;
+    margin: 0 0 0.5rem 0;
+    font-weight: 400;
+}
+
+.form-ctn h2 {
+    text-align: center;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    margin: 0;
+    color: #e189ff;
+    text-shadow: 0 0 10px #e189ff, 0 0 40px rgba(225, 137, 255, 0.4);
+    letter-spacing: 0.05em;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 0.85rem;
+    font-family: "Press Start 2P", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0.08em;
+    opacity: 0.9;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.player-card {
+    padding: 18px;
+    border: 2px solid rgba(162, 228, 247, 0.3);
+    border-radius: 4px;
+    background: linear-gradient(145deg, rgba(10, 8, 20, 0.7), rgba(16, 10, 26, 0.6));
+    box-shadow: 0 0 10px rgba(225, 137, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.player-card:hover {
+    border-color: #a2e4f7;
+    box-shadow: 0 0 15px rgba(162, 228, 247, 0.4);
+}
+
+.player-optional {
+    border-style: dashed;
+    border-color: rgba(162, 228, 247, 0.3);
+    opacity: 0.85;
+}
+
+.player-number {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    color: #e189ff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(162, 228, 247, 0.2);
+    border: 1px solid rgba(162, 228, 247, 0.4);
+    color: #a2e4f7;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    color: #a2e4f7;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 4px rgba(162, 228, 247, 0.5);
+    text-transform: uppercase;
+}
+
+label {
+    font-family: "Press Start 2P", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.form-control,
+.form-control-file {
+    background: rgba(10, 8, 20, 0.8);
+    border: 2px solid rgba(162, 228, 247, 0.3);
+    color: aliceblue;
+    border-radius: 4px;
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    font-family: "Press Start 2P", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0.06em;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(162, 228, 247, 0.1);
+}
+
+.form-control-file {
+    padding: 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.form-control-file::file-selector-button {
+    background-color: #a2e4f7;
+    color: rgb(10, 8, 20);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 0.8rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.07rem;
+}
+
+.form-control-file::file-selector-button:hover {
+    background-color: #e189ff;
+    box-shadow: 0 0 10px rgba(225, 137, 255, 0.6);
+}
+
+.form-control::placeholder {
+    color: rgba(245, 247, 255, 0.45);
+}
+
+.form-control:focus,
+.form-control-file:focus {
+    outline: none;
+    border-color: #a2e4f7;
+    box-shadow: 0 0 15px rgba(162, 228, 247, 0.4), inset 0 0 10px rgba(162, 228, 247, 0.1);
+    background-color: rgba(10, 8, 20, 0.95);
+}
+
+.guideline-ctn {
+    margin-top: 2.5rem;
+    padding: 1.8rem;
+    background: linear-gradient(135deg, 
+        rgba(225, 137, 255, 0.08) 0%, 
+        rgba(162, 228, 247, 0.06) 100%);
+    border-left: 4px solid #e189ff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(225, 137, 255, 0.15);
+}
+
+.guideline-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.guideline-ctn h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #e189ff;
+    text-shadow: 0 0 10px #e189ff;
+    letter-spacing: 0.05em;
+}
+
+.tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #e189ff, #a2e4f7);
+    color: rgb(10, 8, 20);
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(225, 137, 255, 0.4);
+    border: none;
+}
+
+.guideline-ctn ul {
+    padding-left: 22px;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.guideline-ctn ul li {
+    font-family: "Press Start 2P", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.07em;
+    line-height: 1.6;
+    color: aliceblue;
+    padding-left: 1.8rem;
+    position: relative;
+}
+
+.guideline-ctn ul li::before {
+    content: "►";
+    position: absolute;
+    left: 0;
+    color: #a2e4f7;
+    text-shadow: 0 0 8px #a2e4f7;
+}
+
+.guideline-ctn ul ul {
+    margin-top: 8px;
+}
+
+.guideline-ctn ul ul li {
+    font-size: 0.85rem;
+}
+
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-register {
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: linear-gradient(135deg, #e189ff 0%, #a2e4f7 100%);
+    color: rgb(10, 8, 20);
+    padding: 0.95rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(225, 137, 255, 0.4), 0 0 60px rgba(162, 228, 247, 0.2);
+}
+
+.btn-register:hover {
+    box-shadow: 0 0 15px rgba(225, 137, 255, 0.6), 0 0 80px rgba(162, 228, 247, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-register:active {
+    transform: translateY(0);
+}
+
+.btn-return {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 2px solid #a2e4f7;
+    color: #a2e4f7;
+    background: linear-gradient(135deg, rgba(162, 228, 247, 0.3) 0%, rgba(162, 228, 247, 0.1) 100%);
+    padding: 0.95rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(162, 228, 247, 0.2);
+}
+
+.btn-return:hover {
+    background: linear-gradient(135deg, rgba(162, 228, 247, 0.5) 0%, rgba(162, 228, 247, 0.3) 100%);
+    color: #a2e4f7;
+    box-shadow: 0 0 10px rgba(162, 228, 247, 0.5), 0 0 60px rgba(162, 228, 247, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-return:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: 24px 12px;
+    }
+
+    .form-ctn {
+        gap: 20px;
+    }
+
+    .team-members {
+        grid-template-columns: 1fr;
+    }
+
+    .guideline-ctn ul {
+        padding-left: 16px;
+    }
+}

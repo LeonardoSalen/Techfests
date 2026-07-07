@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collide: Two Voices, One Song</title>
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- fonts -->
+        <!-- silkscreen font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+        <!-- press start 2p font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/collide.css">
+</head>
+<body>
+    <form class="form-ctn" id="forms" method="post">
+        <div class="form-header">
+            <p class="kicker">TechFest 2026</p>
+            <h2>Collide: Two Voices, One Song</h2>
+        </div>
+
+        <div class="form-group">
+            <label for="username">FullName</label>
+            <input type="text" id="username" class="form-control" placeholder="Juan Dela Cruz" required>
+        </div>
+
+        <div class="form-group">
+            <label for="studentID">Student Number</label>
+            <input type="tel" id="studentID" class="form-control" placeholder="20-12345" maxlength="9" required>
+        </div>
+
+        <div class="form-group">
+            <label for="faculty">Faculty Member Name</label>
+            <input type="text" id="facultyName" class="form-control" required>
+        </div>
+
+        <div class="guideline-ctn">
+            <div class="guideline-header">
+                <h4>Important Guidelines</h4>
+                <span class="tag">Read Before Registering</span>
+            </div>
+            <ul>
+                <li>Students must complete the registration along with the details of the faculty member they are partnered with.</li>
+                <li>Faculty members should be from the Department of Computer Studies.</li>
+                <li>Songs must be OPM, in English or Tagalog.</li>
+                <li>Lyrics must be appropriate, free of vulgar or explicit content.</li>
+                <li>Each performance must not exceed five (5) minutes.</li>
+                <li>Minus-one instrumental tracks must be submitted to the designated Google Drive before the event.</li>
+            </ul>
+        </div>
+
+        <div id="message" aria-live="polite"></div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-register">Submit</button>
+            <a class="btn btn-return" href="/">Return to Events</a>
+        </div>
+    </form>
+    <h4 style=" text-align: center; padding: 40px 0 20px 0; color: aliceblue;"><span class="code-credits">CO:DE</span> x <span class="byte-credits">BYTE</span></h4>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('forms');
+            const submitBtn = form.querySelector('.btn-register');
+            const msg = document.getElementById('message');
+
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                msg.classList.remove('is-success', 'is-error');
+                msg.innerHTML = '';
+
+                const username = document.getElementById('username').value.trim();
+                const studentID = document.getElementById('studentID').value.trim();
+                const faculty = document.getElementById('facultyName').value.trim();
+
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Submitting...';
+                }
+
+                try {
+                    const response = await fetch('/register/collide', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({username, studentID, faculty}),
+                        credentials: 'include'
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        msg.classList.add('is-success');
+                        msg.innerHTML = '<p>Reservation Successful!</p>';
+                        form.reset();
+                    } else {
+                        msg.classList.add('is-error');
+                        msg.innerHTML = `<p>${data.error}</p>`;
+                    }
+                }
+                catch (error) {
+                    msg.classList.add('is-error');
+                    msg.innerHTML = '<p>Unable to reserve right now. Please try again.</p>';
+                } finally {
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit';
+                    }
+                }
+            });
+        });
+    </script>    
+    
+</body>
+</html>

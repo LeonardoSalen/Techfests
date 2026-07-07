@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station 7: Mock-A-Thon: UI/UX edition</title>
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- fonts -->
+        <!-- silkscreen font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+        <!-- press start 2p font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/station.css">
+</head>
+<body>
+    <form method="post" class="form-ctn station-7">
+        <div class="form-header">
+            <p class="kicker">TechFest 2026</p>
+            <h2>Station 7: Mock-A-Thon: UI/UX edition</h2>
+        </div>
+        
+        <div class="team-members">
+            <div class="form-group player-card">
+                <h5 class="player-number">Player 1</h5>
+                <label for="name_1">Full Name</label>
+                <input type="text" name="name_1" id="name_1" class="form-control" placeholder="Full name" required>
+                <label for="schoolID_1">Student ID</label>
+                <input type="text" name="schoolID_1" id="schoolID_1" class="form-control" placeholder="20-12345" required>
+                <label for="doc_1">Registration Form</label>
+                <input type="file" name="doc_1" id="doc_1" class="form-control-file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group player-card">
+                <h5 class="player-number">Player 2</h5>
+                <label for="name_2">Full Name</label>
+                <input type="text" name="name_2" id="name_2" class="form-control" placeholder="Full name" required>
+                <label for="schoolID_2">Student ID</label>
+                <input type="text" name="schoolID_2" id="schoolID_2" class="form-control" placeholder="20-12345" required>
+                <label for="doc_2">Registration Form</label>
+                <input type="file" name="doc_2" id="doc_2" class="form-control-file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group player-card">
+                <h5 class="player-number">Player 3</h5>
+                <label for="name_3">Full Name</label>
+                <input type="text" name="name_3" id="name_3" class="form-control" placeholder="Full name" required>
+                <label for="schoolID_3">Student ID</label>
+                <input type="text" name="schoolID_3" id="schoolID_3" class="form-control" placeholder="20-12345" required>
+                <label for="doc_3">Registration Form</label>
+                <input type="file" name="doc_3" id="doc_3" class="form-control-file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+        </div>
+
+        <div class="guideline-ctn">
+            <div class="guideline-header">
+                <h4>Important Guidelines</h4>
+                <span class="tag">Read Before Registering</span>
+            </div>
+            <ul>
+                <li><strong>Registration Fee:</strong> 20.00 php</li>
+                <li>Participants should not be registered to any other 
+                    TechFest activities that will conflict with the 
+                    time frame of the event.</li>
+                <li>Students must upload their school registration form as part of the registration process.</li>
+                <li>The registration committee reserves the right to cancel registrations with incomplete requirements.</li>
+                <li>Registration cancellation is not allowed. In unavoidable cases, participants must inform the assigned officer to reopen registration for replacements.</li>
+                <li>All works must be original and created by the team members.</li>
+                <li>Plagiarism, unmodified pre-made templates, or copying existing applications is strictly prohibited.</li>
+                <li>Prototypes may be created using design tools such as Figma, Adobe SD, Sketch, etc.</li>
+            </ul>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-register">Submit</button>
+            <a class="btn btn-return" href="/register/comleague">Return to ComLeague</a>
+        </div>
+    </form>
+    <h4 style=" text-align: center; padding: 40px 0 20px 0; color: aliceblue;"><span class="code-credits">CO:DE</span> x <span class="byte-credits">BYTE</span></h4>
+</body>
+</html>

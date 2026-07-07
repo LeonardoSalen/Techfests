@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Tournament</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- fonts -->
+        <!-- silkscreen font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+        <!-- press start 2p font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/mlbb.css">
+</head>
+<body>
+    <form class="form-ctn" id="valorant-form" action="/register/valorant" method="post" enctype="multipart/form-data">
+        <div class="form-header">
+            <p class="kicker">TechFest 2026</p>
+            <h2>Radiant’s Protocol: Valorant Tournament</h2>
+            <p class="subtitle">Assemble your squad and lock your roles.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="teamname">Team Name</label>
+            <input type="text" name="teamname" class="form-control" placeholder="Rift Monarchs" required>
+        </div>
+
+        <div class="form-group">
+            <label for="captain">Team Captain</label>
+            <input type="text" name="captain" class="form-control" placeholder="Full name" required>
+        </div>
+
+        <div class="team-members">
+            <div class="form-group player-card">
+                <h5 class="player-number">Player 1</h5>
+                <label for="name_1">Full Name</label>
+                <input type="text" name="name_1" id="name_1" class="form-control" placeholder="Full name" required>
+                <label for="schoolID_1">Student Number</label>
+                <input type="tel" name="schoolID_1" id="schoolID_1" class="form-control" placeholder="20-12345" maxlength="9" required>
+                <label for="ign_1">Riot ID</label>
+                <input type="text" name="ign_1" id="ign_1" class="form-control" placeholder="Riot ID" required>
+                <label for="doc_1">Valid Document</label>
+                <input type="file" name="doc_1" id="doc_1" class="form-control-file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group player-card">
+                <h5 class="player-number">Player 2</h5>
+                <label for="name_2">Full Name</label>
+                <input type="text" name="name_2" id="name_2" class="form-control" placeholder="Full name" required>
+                <label for="schoolID_2">Student Number</label>
+                <input type="tel" name="schoolID_2" id="schoolID_2" class="form-control" placeholder="20-12345" maxlength="9" required>
+                <label for="ign_2">Riot ID</label>
+                <input type="text" name="ign_2" id="ign_2" class="form-control" placeholder="Riot ID" required>
+                <label for="doc_2">Valid Document</label>
+                <input type="file" name="doc_2" id="doc_2" class="form-control-file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group player-card">
+                <h5 class="player-number">Player 3</h5>
+                <label for="name_3">Full Name</label>
+                <input type="text" name="name_3" id="name_3" class="form-control" placeholder="Full name" required>
+                <label for="schoolID_3">Student Number</label>
+                <input type="tel" name="schoolID_3" id="schoolID_3" class="form-control" placeholder="20-12345" maxlength="9" required>
+                <label for="ign_3">Riot ID</label>
+                <input type="text" name="ign_3" id="ign_3" class="form-control" placeholder="Riot ID" required>
+                <label for="doc_3">Valid Document</label>
+                <input type="file" name="doc_3" id="doc_3" class="form-control-file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group player-card">
+                <h5 class="player-number">Player 4</h5>
+                <label for="name_4">Full Name</label>
+                <input type="text" name="name_4" id="name_4" class="form-control" placeholder="Full name" required>
+                <label for="schoolID_4">Student Number</label>
+                <input type="tel" name="schoolID_4" id="schoolID_4" class="form-control" placeholder="20-12345" maxlength="9" required>
+                <label for="ign_4">Riot ID</label>
+                <input type="text" name="ign_4" id="ign_4" class="form-control" placeholder="Riot ID" required>
+                <label for="doc_4">Valid Document</label>
+                <input type="file" name="doc_4" id="doc_4" class="form-control-file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group player-card">
+                <h5 class="player-number">Player 5</h5>
+                <label for="name_5">Full Name</label>
+                <input type="text" name="name_5" id="name_5" class="form-control" placeholder="Full name" required>
+                <label for="schoolID_5">Student Number</label>
+                <input type="tel" name="schoolID_5" id="schoolID_5" class="form-control" placeholder="20-12345" maxlength="9" required>
+                <label for="ign_5">Riot ID</label>
+                <input type="text" name="ign_5" id="ign_5" class="form-control" placeholder="Riot ID" required>
+                <label for="doc_5">Valid Document</label>
+                <input type="file" name="doc_5" id="doc_5" class="form-control-file" accept=".pdf,.jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group player-card player-optional">
+                <h5 class="player-number">Player 6 <span class="badge">Optional</span></h5>
+                <label for="name_6">Full Name</label>
+                <input type="text" name="name_6" id="name_6" class="form-control" placeholder="Full name">
+                <label for="schoolID_6">Student Number</label>
+                <input type="tel" name="schoolID_6" id="schoolID_6" class="form-control" placeholder="20-12345" maxlength="9">
+                <label for="ign_6">Riot ID</label>
+                <input type="text" name="ign_6" id="ign_6" class="form-control" placeholder="Riot ID">
+                <label for="doc_6">Valid Document</label>
+                <input type="file" name="doc_6" id="doc_6" class="form-control-file" accept=".pdf,.jpg,.jpeg,.png">
+            </div>
+        </div>
+
+        <div class="guideline-ctn">
+            <div class="guideline-header">
+                <h4>Important Guidelines</h4>
+                <span class="tag">Read Before Registering</span>
+            </div>
+            <ul>
+                <li><strong>Registration Fee:</strong> 30.00 php per person</li>
+                <li>Participants must be enrolled in either the Bachelor of Science in Information Technology or the Bachelor of Science in Computer Science programs.</li>
+                <li>Player must have their own device with Valorant installed</li>
+                <li>Team captains may submit the registration fee for the entire team</li>
+                <li>All participants must submit a valid document proving their current sector:
+                    <ul>
+                        <li>Students: Registration Form</li>
+                        <li>Faculty: Faculty ID</li>
+                    </ul>
+                </li>
+                <li>Teams are responsible for maintaining their own internet connection.</li>
+                <li>Each player may only play for one team.</li>
+                <li>After successful registration, Team Captains will be added to a Messenger group for updates.</li>
+            </ul>
+        </div>
+
+        <div id="message" aria-live="polite"></div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-register">Submit</button>
+            <a class="btn btn-return" href="/">Return to Events</a>
+        </div>
+    </form>
+    <h4 style=" text-align: center; padding: 40px 0 20px 0; color: aliceblue;"><span class="code-credits">CO:DE</span> x <span class="byte-credits">BYTE</span></h4>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('valorant-form');
+            if (!form) return;
+
+            const submitButton = form.querySelector('.btn-register');
+            const msg = document.getElementById('message');
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                msg.classList.remove('is-success', 'is-error');
+                msg.innerHTML = '';
+                const formData = new FormData(form);
+
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                }
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    let data = null;
+                    try {
+                        data = await response.json();
+                    } catch (jsonError) {
+                        console.error('Error parsing JSON response:', jsonError);
+                    }
+
+                    if (response.ok && data && data.success) {
+                        msg.classList.add('is-success');
+                        msg.innerHTML = `<p>${data.message || 'Valorant team registered successfully!'}</p>`;
+                        form.reset();
+                    } else {
+                        const message = (data && (data.error || data.message)) || 'Network or server error';
+                        msg.classList.add('is-error');
+                        msg.innerHTML = `<p>${message}</p>`;
+                    }
+                } catch (error) {
+                    console.error('Network or server error:', error);
+                    msg.classList.add('is-error');
+                    msg.innerHTML = '<p>An error occurred while submitting the form. Please try again.</p>';
+                } finally {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Submit';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

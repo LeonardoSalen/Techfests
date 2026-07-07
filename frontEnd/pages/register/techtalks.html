@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTalks</title>
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- fonts -->
+        <!-- silkscreen font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+        <!-- press start 2p font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/techtalks.css">
+</head>
+<body>
+    <form class="form-ctn" id="techforms">
+        <div class="form-header">
+            <p class="kicker">TechFest 2026</p>
+            <h2>Tech Talks Registration</h2>
+            <p class="subtitle">Secure your seat for the speakers series.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="username">Full name</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Juan Dela Cruz" required>
+        </div>
+
+        <div class="form-group">
+            <label for="schoolID">Student Number</label>
+            <input type="tel" name="schoolID" id="schoolID" class="form-control" placeholder="20-12345" maxlength="9" required>
+        </div>
+
+        <div class="guideline-ctn">
+            <div class="guideline-header">
+                <h4>Important Guidelines</h4>
+                <span class="tag">Read Before Registering</span>
+            </div>
+            <ul>
+                <li><strong>Registration Fee:</strong> 20.00 php</li>
+                <li>Participants must be enrolled in either the Bachelor of Science in Information Technology or the Bachelor of Science in Computer Science programs.</li>
+                <li>Wear your School ID</li>
+                <li>Follow the designated shirt color</li>
+                <li>Students are expected to observe the "Garbage In, Garbage Out" policy</li>
+                <li>Students must be enrolled in either the Bachelor of Science in Information Technology or the Bachelor of Science in Computer Science programs.</li>
+            </ul>
+        </div>
+
+        <div id="message"></div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-register">Reserve Slot</button>
+            <a class="btn btn-return" href="/">Return to Events</a>
+        </div>
+    </form>
+    <h4 style=" text-align: center; padding: 40px 0 20px 0; color: aliceblue;"><span class="code-credits">CO:DE</span> x <span class="byte-credits">BYTE</span></h4>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+            const form = document.getElementById('techforms');
+            const submitButton = form.querySelector('.btn-register');
+            const msg = document.getElementById('message');
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                msg.classList.remove('is-success', 'is-error');
+                msg.innerHTML = '';
+
+                const username = document.getElementById('username').value.trim();
+                const schoolID = document.getElementById('schoolID').value.trim();
+
+                if(submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                }
+
+                try {
+                    const response = await fetch('/register/techtalks', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ username, schoolID }),
+                        credentials: 'include'
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        msg.classList.add('is-success');
+                        msg.innerHTML = '<p>Reservation Successful!</p>'
+
+                        document.getElementById('techforms').reset();
+                    } else {
+                        msg.classList.add('is-error');
+                        msg.innerHTML = `<p>${data.error}</p>`;
+                    }
+                }
+                catch(error) {
+                    msg.classList.add('is-error');
+                    msg.innerHTML = '<p>Unable to reserve right now. Please try again.</p>';
+                }
+                finally {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Submit';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
